@@ -1,8 +1,8 @@
 {
     "name": "bash-models",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A set of models that expose APIs for parsing, creating, and manipulating Bash Files",
-    "main": "bw-models.js",
+    "main": "src/index.ts",
     "scripts": {
         "build": "tsc",
         "test": "mocha -r ts-node/register src/**/*.spec.ts"
