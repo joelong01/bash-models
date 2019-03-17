@@ -1,17 +1,27 @@
 {
     "name": "bash-models",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "description": "A set of models that expose APIs for parsing, creating, and manipulating Bash Files",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
     "scripts": {
-        "build": "tsc",
-        "test": "mocha -r ts-node/register src/**/*.spec.ts"
+        "clean": "rimraf /dist.",
+        "build": "npm run clean && tsc",
+        "copypackage": "copyfiles package.json ./dist",
+        "test": "mocha -r ts-node/register src/**/*.spec.ts",
+        "bwpublish-test": "npm run build && npm run test &&  npm run copypackage && cd dist && npm publish --dry-run && cd ..",
+        "bwpublish": "npm run build & npm run test && npm run copypackage && cd dist && npm publish && cd .."
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/joelong01/bash-models.git"
     },
+    "files": [
+        "*.js",
+        "*.d.ts",
+        "*.json",
+        "license",
+        "*.md",
+        "node_modules"
+    ],
     "keywords": [
         "bash",
         "typescript",
@@ -33,6 +43,7 @@
         "@types/lodash": "^4.14.123",
         "@types/mocha": "^5.2.6",
         "chai": "^4.2.0",
+        "copyfiles": "^2.1.0",
         "mocha": "^6.0.2",
         "ts-node": "^8.0.3",
         "typescript": "^3.3.3333"
