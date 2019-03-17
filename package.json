@@ -1,0 +1,39 @@
+{
+    "name": "bash-models",
+    "version": "1.0.0",
+    "description": "A set of models that expose APIs for parsing, creating, and manipulating Bash Files",
+    "main": "bw-models.js",
+    "scripts": {
+        "build": "tsc",
+        "test": "mocha -r ts-node/register src/**/*.spec.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joelong01/bash-models.git"
+    },
+    "keywords": [
+        "bash",
+        "typescript",
+        "parse",
+        "create"
+    ],
+    "author": "Joe Long",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joelong01/bash-models/issues"
+    },
+    "homepage": "https://github.com/joelong01/bash-models#readme",
+    "dependencies": {
+        "lodash": "^4.17.11",
+        "strongly-typed-events": "^1.4.10"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/lodash": "^4.14.123",
+        "@types/mocha": "^5.2.6",
+        "chai": "^4.2.0",
+        "mocha": "^6.0.2",
+        "ts-node": "^8.0.3",
+        "typescript": "^3.3.3333"
+    }
+}
