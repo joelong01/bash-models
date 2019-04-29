@@ -24,7 +24,7 @@ export class ScriptModel {
     //  this are capitalized because JSON serlizes all data and it is easier to have them named the way we want to see them
     //  in JSON than to still to a normal naming convention for member variables..
     private ScriptName: string = "";
-    private Version: string = "0.910";
+    private Version: string = "1.0.0";
     private Description: string = "";;
     private Parameters: ParameterModel[] = [];
 

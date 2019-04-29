@@ -19,7 +19,7 @@ export function dumpErrors(msg: string, errors: IErrorMessage[] | null) {
 const sm: ScriptModel = new ScriptModel();
 describe('version check', () => {
     it('version check', () => {
-        expect(sm.version).to.equal("0.910");
+        expect(sm.version).to.equal("1.0.0");
     });
 });
 
