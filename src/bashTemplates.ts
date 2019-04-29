@@ -1,8 +1,8 @@
 export const bashTemplates =
-    {
-        bashTemplate:
-`#!/bin/bash
-#---------- see https://github.com/joelong01/Bash-Wizard----------------
+{
+    bashTemplate:
+        `#!/bin/bash
+#---------- see https://github.com/joelong01/BashWizard ----------------
 # bashWizard version __VERSION__
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
@@ -16,10 +16,15 @@ function echoWarning() {
     NORMAL=$(tput sgr0)
     echo "\${YELLOW}\${1}\${NORMAL}"
 }
-function echoInfo {
+function echoInfo() {
     GREEN=$(tput setaf 2)
     NORMAL=$(tput sgr0)
     echo "\${GREEN}\${1}\${NORMAL}"
+}
+function echoIfVerbose() {
+    if [[ "$verbose" == true ]]; then
+        echo "\${@}"
+    fi
 }
 # make sure this version of *nix supports the right getopt
 ! getopt --test 2>/dev/null
@@ -48,7 +53,7 @@ function echoInput() {
 }
 
 function parseInput() {
-    
+
     local OPTIONS=__SHORT_OPTIONS__
     local LONGOPTS=__LONG_OPTIONS__
 
@@ -79,7 +84,7 @@ __INPUT_CASE__
         esac
     done
 }
-# input variables 
+# input variables
 __INPUT_DECLARATION__
 
 parseInput "$@"
@@ -93,19 +98,18 @@ __VERBOSE_ECHO__
     __USER_CODE_1__
     # --- END USER CODE ---
 __END_LOGGING_SUPPORT__`,
-logTemplate:
-`#logging support
+    logTemplate:
+        `#logging support
 declare LOG_FILE="\${logDirectory}__LOG_FILE_NAME__"
 {
-    mkdir -p "\${logDirectory}" 
-    rm -f "\${LOG_FILE}"
+    mkdir -p "\${logDirectory}"
 } 2>>/dev/null
 #creating a tee so that we capture all the output to the log file
 {
-    time=$(date +"%m/%d/%y @ %r")
-    echo "started: $time"`,
-parseInputTemplate: 
-`# if command line tells us to parse an input file
+    time=$(date +"%m/%d/%y on %r")
+    echo "started  \${0}" "\${@}" "@ $time"`,
+    parseInputTemplate:
+        `# if command line tells us to parse an input file
 if [ \"\${inputFile}\" != "" ]; then
     # load parameters from the file
     configSection=$(jq . <\"\${inputFile}\" | jq '."__SCRIPT_NAME__"')
@@ -117,8 +121,8 @@ __FILE_TO_SETTINGS__
     # we need to parse the again to see if there are any overrides to what is in the config file
     parseInput "$@"
 fi`,
-requiredVariablesTemplate:
-`#verify required parameters are set
+    requiredVariablesTemplate:
+        `#verify required parameters are set
 if __REQUIRED_FILES_IF__; then
     echo ""
     echoError "Required parameter missing! "
@@ -127,14 +131,14 @@ if __REQUIRED_FILES_IF__; then
     usage
     exit 2
 fi`,
-endOfBash:
-`
-    time=$(date +"%m/%d/%y @ %r")
-    echo "ended: $time"
+    endOfBash:
+        `
+    time=$(date +"%m/%d/%y on %r")
+    echo "ended:  \${0}" "\${@}" "@ $time"
 } | tee -a \"\${LOG_FILE}\"
 `,
-verifyCreateDelete:
-`   function onVerify() {
+    verifyCreateDelete:
+        `   function onVerify() {
         echo "onVerify"
     }
     function onDelete() {
@@ -143,7 +147,6 @@ verifyCreateDelete:
     function onCreate() {
         echo "onCreate"
     }
-
     __USER_CODE_1__
 
     #
@@ -161,14 +164,14 @@ verifyCreateDelete:
     if [[ $verify == "true" ]]; then
         onVerify
     fi`,
-    jqDependency: 
-    `# we have a dependency on jq
+    jqDependency:
+        `# we have a dependency on jq
     if [[ ! -x "$(command -v jq)" ]]; then
         echoError "'jq is needed to run this script. Please install jq - see https://stedolan.github.io/jq/download/"
         exit 1
     fi`,
-verboseEcho:
-`   if [[ $"verbose" == true ]];then
+    verboseEcho:
+        `    if [[ "$verbose" == true ]];then
         echoInput
     fi`
 }

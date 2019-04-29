@@ -1,9 +1,9 @@
 
-import {ParameterModel} from './ParameterModel';
+import { ParameterModel } from './ParameterModel';
 import { bashTemplates } from './bashTemplates';
-import {ParameterType } from "./commonModel"
+import { ParameterType } from "./commonModel"
 
-import  uniqueId from 'lodash/uniqueId';
+import uniqueId from 'lodash/uniqueId';
 import { ScriptModel } from './scriptModel';
 import { ErrorModel } from './errorModel';
 
@@ -84,11 +84,19 @@ export class ParseBash {
     //  "endOfBash" in the script file and we have a long-parameter name "log-directory"
     public verboseSupported = (script: string, parameters: ParameterModel[]): ParameterModel | undefined => {
 
-        const idx: number = script.indexOf("if [[ $\"verbose\" == true ]];then");
+        let idx: number = script.indexOf("if [[ \"$verbose\" == true ]];then");
         if (idx !== -1) {
 
             return this.findParameterByLongName(parameters, "verbose");
         }
+        //
+        // version 1.06 had a bug where the $ was ouside the quotes
+        idx = script.indexOf("if [[ $\"verbose\" == true ]];then");
+        if (idx !== -1) {
+
+            return this.findParameterByLongName(parameters, "verbose");
+        }
+
         return undefined;
     }
 
@@ -120,7 +128,7 @@ export class ParseBash {
 
 
 
-    public parseBash = (scriptModel:ScriptModel, input: string): boolean => {
+    public parseBash = (scriptModel: ScriptModel, input: string): boolean => {
         //
         //  Error Messages constants used when parsing the Bash file
         const unMergedGitFile: string = "Bash Script has \"<<<<<<< HEAD\" string in it, indicating an un-merged GIT file.  fix merge before opening.";
@@ -279,8 +287,7 @@ export class ParseBash {
                 if (line.substring(0, 1) === "-") // we have a parameter!
                 {
                     const paramTokens: string[] = this.splitByTwoStrings(line, " ", "|");
-                    if (line.indexOf("|")<0)
-                    {
+                    if (line.indexOf("|") < 0) {
                         paramTokens.unshift("-"); // there is no short parameter, so add token
                     }
                     let description: string = "";
@@ -341,7 +348,7 @@ export class ParseBash {
 
                     continue; // this is an empty parameter
                 }
-                if (line.substring(0, 1) === "-" && lines[index+1] !== undefined) // we have a parameter!
+                if (line.substring(0, 1) === "-" && lines[index + 1] !== undefined) // we have a parameter!
                 {
                     const paramTokens: string[] = lines[index + 1].trim().split("=");
                     if (paramTokens.length !== 2) {
