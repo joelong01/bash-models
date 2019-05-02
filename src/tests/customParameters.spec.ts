@@ -4,8 +4,7 @@ import 'mocha';
 import { ParameterType, IScriptModelState } from "../commonModel";
 import ParameterModel from "../ParameterModel";
 import "./builtInParameters.spec" // forces mocha to run it first
-import { it } from "mocha";
-import {dumpErrors} from "./builtInParameters.spec"
+
 
 const sm2: ScriptModel = new ScriptModel();
 
@@ -24,11 +23,7 @@ class ScriptModelCallBack {
                 }
             }
         });
-        /* expect(state).not.equal(undefined);
-        expect(state).not.equal(null);
-        expect(state.parameters).not.equal(undefined);
-        expect(state.parameters).not.equal(null);
-        const param: ParameterModel = state.parameters![state.parameters!.length - 1]; // note: test enforcing order semantics */
+
     }
 }
 const cb: ScriptModelCallBack = new ScriptModelCallBack();

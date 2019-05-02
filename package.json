@@ -1,9 +1,9 @@
 {
     "name": "bash-models",
-    "version": "1.0.13",
+    "version": "1.1.1",
     "description": "A set of models that expose APIs for parsing, creating, and manipulating Bash Files",
     "scripts": {
-        "clean": "rimraf /dist.",
+        "clean": "rimraf ./dist.",
         "build": "npm run clean && tsc",
         "copypackage": "copyfiles package.json ./dist",
         "test": "mocha -r ts-node/register src/**/*.spec.ts",
@@ -45,6 +45,7 @@
         "chai": "^4.2.0",
         "copyfiles": "^2.1.0",
         "mocha": "^6.1.4",
+        "node": "^12.1.0",
         "rimraf": "^2.6.3",
         "ts-node": "^8.1.0",
         "typescript": "^3.4.5"

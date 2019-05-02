@@ -444,8 +444,9 @@ export class ScriptModel {
 
             //  remove last line / character
             longOptions = longOptions.slice(0, -1);
-            inputCase = inputCase.slice(0, -1)
-            usageInfo = usageInfo.slice(0, -1)
+            inputCase = inputCase.slice(0, -1);
+            usageInfo = usageInfo.slice(0, -1);
+            echoInput = echoInput.slice(0, -1);
 
 
             if (requiredFilesIf.length > 0) {
