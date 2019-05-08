@@ -166,8 +166,8 @@
         "signature": "81405054b4544bc647cfa595eb11e6f9d77ad2c651a8eb85e9040f8f1f82829e"
       },
       "e:/github/bash-models/src/bashtemplates.ts": {
-        "version": "5bce993610044e6dfb1f13ae32a3518746eaab64dd5f9a98a3153954039911cf",
-        "signature": "491c82b5d72b3439e635cac0391e6ca2ae72595fe8f30e7cfe12646289e75d18"
+        "version": "7af57605e119738a76f06214f7b0aa59f6cce4632bb5f28b08cf2d0ab29d3707",
+        "signature": "9395427da27bb76807ccdb31a4a3cbf8aae67228df4dc864115363e20cf8899a"
       },
       "e:/github/bash-models/node_modules/@types/lodash/padend.d.ts": {
         "version": "a62d1249eabd7178d4b57780002b95a140fb88350e26597cc094d788d1d2d501",
@@ -186,16 +186,16 @@
         "signature": "afc0c6e4b663dbdf3de4faa08e1a693662a74ffc562c860adda8c55f84cf1b9d"
       },
       "e:/github/bash-models/src/parsebash.ts": {
-        "version": "cb02f5ed4a3f533884ec590bfcf152758896ade048dbe9b1c9494648ee38e3b4",
-        "signature": "afecc38182955ec113cb04c26a3f88661ace57d76fa58da8db23d9db2006d0bf"
+        "version": "bd8d63fe3a72aa8f69eb6a6418aed209adc11d37966ee8f147a292c92dee755c",
+        "signature": "ea2b688ef954f77c1debe8dd12c8a638186137948495e30d444a3b3f5c92cce1"
       },
       "e:/github/bash-models/src/scriptmodel.ts": {
-        "version": "a08dbb5852d6b04f5f4c5cd354ad86b1ac6eff3b91be68d282b35ea63a1b08d1",
-        "signature": "dade6c30093fe116f42a579aac1f6afde379a440f80a0845eccde1e33997e2d8"
+        "version": "da89bb791bd3c2bdfe0ae3c85a74340d8a07f2634e6dde7c9b4b8d0d7bdd0b7b",
+        "signature": "7651fd1c07ffea35f20082a80f2541ddb95b079b255e6809f79036fe6151864f"
       },
       "e:/github/bash-models/src/index.ts": {
         "version": "856f9f7e56c358202b31104fa6235a9a1995ba5a7a05c2c20656e5e67c29b162",
-        "signature": "ed21660e753e53613a2dbeb6a36f31d91747d07572fb121493f659630d15011c"
+        "signature": "ed0c415f672448fd3d813cc929c78d1e24412d4a0e1e47e42e17cb67a67f08da"
       },
       "e:/github/bash-models/node_modules/@types/chai/index.d.ts": {
         "version": "c465afa89ac28f74167a2ee7c3c6eb8dd1245c2b3bdaa4704d58d35b932de4b7",
@@ -204,25 +204,6 @@
       "e:/github/bash-models/node_modules/@types/mocha/index.d.ts": {
         "version": "0d2394ead194f57249ac193360c6529ff4b4ec675e3499651eed6baf20867102",
         "signature": "0d2394ead194f57249ac193360c6529ff4b4ec675e3499651eed6baf20867102"
-      },
-      "e:/github/bash-models/package.json": {
-        "version": "979c6c8043d2d2d03dbea6af010909fa4ce60ac477a2f2f9271b1ec5fdb61452"
-      },
-      "e:/github/bash-models/src/tests/builtinparameters.spec.ts": {
-        "version": "630ae105848afb5e7783d802e3c226686edc5b7935d2c9475536de7a3931c9aa",
-        "signature": "57fdf19fedb9f5d5dee930cebb8c118ef4accfac974b944efcf8f4e45c9ebe35"
-      },
-      "e:/github/bash-models/src/tests/customparameters.spec.ts": {
-        "version": "0f49856a1cbe3a467df0f96c4fb6c26a09770d3cd617d8bfcc25bef81d790bfc",
-        "signature": "c16315b6c2dd86dd7fce7aa228b5c14fb96ea20608385ed75d6116d293536cd2"
-      },
-      "e:/github/bash-models/src/tests/generatebashfile.ts": {
-        "version": "99a5962abc76dbbd81e4833c6730353291bacdbc7bbd52453125112264ece490",
-        "signature": "8babb930c6aeb894e70651e8a747159dd4143666fae5e05977454612d7851dd9"
-      },
-      "e:/github/bash-models/src/tests/roundtrip.spec.ts": {
-        "version": "43a1e6db9cc79c3b6304df977efb9b827704f8aad1c781885fd549d5f9143a75",
-        "signature": "6f9ab3f86be13b4989f45925b33dade0cef83694e26e61ca14f9a2077c2fff09"
       }
     },
     "options": {
@@ -529,33 +510,6 @@
         "e:/github/bash-models/src/scriptmodel.ts",
         "e:/github/bash-models/src/errormodel.ts",
         "e:/github/bash-models/src/commonmodel.ts"
-      ],
-      "e:/github/bash-models/src/tests/builtinparameters.spec.ts": [
-        "e:/github/bash-models/src/scriptmodel.ts",
-        "e:/github/bash-models/node_modules/@types/chai/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/mocha/index.d.ts",
-        "e:/github/bash-models/src/commonmodel.ts",
-        "e:/github/bash-models/src/parametermodel.ts",
-        "e:/github/bash-models/package.json"
-      ],
-      "e:/github/bash-models/src/tests/customparameters.spec.ts": [
-        "e:/github/bash-models/src/scriptmodel.ts",
-        "e:/github/bash-models/node_modules/@types/chai/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/mocha/index.d.ts",
-        "e:/github/bash-models/src/commonmodel.ts",
-        "e:/github/bash-models/src/parametermodel.ts",
-        "e:/github/bash-models/src/tests/builtinparameters.spec.ts"
-      ],
-      "e:/github/bash-models/src/tests/generatebashfile.ts": [
-        "e:/github/bash-models/src/scriptmodel.ts",
-        "e:/github/bash-models/src/commonmodel.ts"
-      ],
-      "e:/github/bash-models/src/tests/roundtrip.spec.ts": [
-        "e:/github/bash-models/src/scriptmodel.ts",
-        "e:/github/bash-models/node_modules/@types/chai/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/mocha/index.d.ts",
-        "e:/github/bash-models/src/commonmodel.ts",
-        "e:/github/bash-models/src/tests/customparameters.spec.ts"
       ]
     },
     "exportedModulesMap": {
@@ -563,210 +517,6 @@
         "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
         "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
         "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/index.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/camelcase.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
-      ],
-      "e:/github/bash-models/src/scriptmodel.ts": [
-        "e:/github/bash-models/src/parametermodel.ts",
-        "e:/github/bash-models/src/commonmodel.ts",
-        "e:/github/bash-models/src/errormodel.ts",
-        "e:/github/bash-models/node_modules/ste-simple-events/dist/index.d.ts"
-      ],
-      "e:/github/bash-models/src/tests/roundtrip.spec.ts": [
-        "e:/github/bash-models/node_modules/@types/mocha/index.d.ts",
-        "e:/github/bash-models/src/tests/customparameters.spec.ts"
-      ],
-      "e:/github/bash-models/src/tests/customparameters.spec.ts": [
-        "e:/github/bash-models/node_modules/@types/mocha/index.d.ts",
-        "e:/github/bash-models/src/tests/builtinparameters.spec.ts"
-      ],
-      "e:/github/bash-models/src/tests/builtinparameters.spec.ts": [
-        "e:/github/bash-models/node_modules/@types/mocha/index.d.ts",
-        "e:/github/bash-models/src/commonmodel.ts"
-      ],
-      "e:/github/bash-models/src/parsebash.ts": [
-        "e:/github/bash-models/src/parametermodel.ts",
-        "e:/github/bash-models/src/scriptmodel.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/trimend.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/trimstart.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/padend.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/uniqueid.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
-      ],
-      "e:/github/bash-models/src/parametermodel.ts": [
-        "e:/github/bash-models/src/commonmodel.ts",
-        "e:/github/bash-models/src/errormodel.ts",
-        "e:/github/bash-models/node_modules/ste-events/dist/index.d.ts"
-      ],
-      "e:/github/bash-models/src/errormodel.ts": [
-        "e:/github/bash-models/src/commonmodel.ts",
-        "e:/github/bash-models/src/parametermodel.ts",
-        "e:/github/bash-models/node_modules/ste-simple-events/dist/index.d.ts"
-      ],
-      "e:/github/bash-models/src/commonmodel.ts": [
-        "e:/github/bash-models/src/parametermodel.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts": [
-        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
-        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
         "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
         "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
         "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
@@ -791,6 +541,170 @@
         "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
         "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
       ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/index.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+        "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/uniqueid.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
+      ],
+      "e:/github/bash-models/src/commonmodel.ts": [
+        "e:/github/bash-models/src/parametermodel.ts"
+      ],
+      "e:/github/bash-models/node_modules/ste-core/dist/dispatching.d.ts": [
+        "e:/github/bash-models/node_modules/ste-core/dist/definitions/subscribable.d.ts",
+        "e:/github/bash-models/node_modules/ste-core/dist/subscription.d.ts"
+      ],
       "e:/github/bash-models/node_modules/ste-core/dist/index.d.ts": [
         "e:/github/bash-models/node_modules/ste-core/dist/management.d.ts",
         "e:/github/bash-models/node_modules/ste-core/dist/definitions/subscribable.d.ts",
@@ -798,15 +712,7 @@
         "e:/github/bash-models/node_modules/ste-core/dist/subscription.d.ts",
         "e:/github/bash-models/node_modules/ste-core/dist/definitions/handling.d.ts"
       ],
-      "e:/github/bash-models/node_modules/ste-events/dist/events.d.ts": [
-        "e:/github/bash-models/node_modules/ste-core/dist/index.d.ts",
-        "e:/github/bash-models/node_modules/ste-events/dist/definitions.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/ste-events/dist/index.d.ts": [
-        "e:/github/bash-models/node_modules/ste-events/dist/events.d.ts",
-        "e:/github/bash-models/node_modules/ste-events/dist/definitions.d.ts"
-      ],
-      "e:/github/bash-models/node_modules/ste-events/dist/definitions.d.ts": [
+      "e:/github/bash-models/node_modules/ste-simple-events/dist/definitions.d.ts": [
         "e:/github/bash-models/node_modules/ste-core/dist/index.d.ts"
       ],
       "e:/github/bash-models/node_modules/ste-simple-events/dist/simple-events.d.ts": [
@@ -817,15 +723,103 @@
         "e:/github/bash-models/node_modules/ste-simple-events/dist/simple-events.d.ts",
         "e:/github/bash-models/node_modules/ste-simple-events/dist/definitions.d.ts"
       ],
-      "e:/github/bash-models/node_modules/ste-simple-events/dist/definitions.d.ts": [
+      "e:/github/bash-models/src/errormodel.ts": [
+        "e:/github/bash-models/src/commonmodel.ts",
+        "e:/github/bash-models/src/parametermodel.ts",
+        "e:/github/bash-models/node_modules/ste-simple-events/dist/index.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/ste-events/dist/definitions.d.ts": [
         "e:/github/bash-models/node_modules/ste-core/dist/index.d.ts"
       ],
-      "e:/github/bash-models/node_modules/ste-core/dist/dispatching.d.ts": [
-        "e:/github/bash-models/node_modules/ste-core/dist/definitions/subscribable.d.ts",
-        "e:/github/bash-models/node_modules/ste-core/dist/subscription.d.ts"
+      "e:/github/bash-models/node_modules/ste-events/dist/events.d.ts": [
+        "e:/github/bash-models/node_modules/ste-core/dist/index.d.ts",
+        "e:/github/bash-models/node_modules/ste-events/dist/definitions.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/ste-events/dist/index.d.ts": [
+        "e:/github/bash-models/node_modules/ste-events/dist/events.d.ts",
+        "e:/github/bash-models/node_modules/ste-events/dist/definitions.d.ts"
+      ],
+      "e:/github/bash-models/src/parametermodel.ts": [
+        "e:/github/bash-models/src/commonmodel.ts",
+        "e:/github/bash-models/src/errormodel.ts",
+        "e:/github/bash-models/node_modules/ste-events/dist/index.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/padend.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/trimstart.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/trimend.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
+      ],
+      "e:/github/bash-models/node_modules/@types/lodash/camelcase.d.ts": [
+        "e:/github/bash-models/node_modules/@types/lodash/index.d.ts"
+      ],
+      "e:/github/bash-models/src/parsebash.ts": [
+        "e:/github/bash-models/src/parametermodel.ts",
+        "e:/github/bash-models/src/scriptmodel.ts"
+      ],
+      "e:/github/bash-models/src/scriptmodel.ts": [
+        "e:/github/bash-models/src/commonmodel.ts",
+        "e:/github/bash-models/node_modules/ste-simple-events/dist/index.d.ts",
+        "e:/github/bash-models/src/parametermodel.ts",
+        "e:/github/bash-models/src/errormodel.ts"
       ]
     },
-    "semanticDiagnosticsPerFile": []
+    "semanticDiagnosticsPerFile": [
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es5.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.dom.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "e:/github/bash-models/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/common.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/array.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/collection.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/date.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/function.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/lang.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/math.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/number.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/object.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/seq.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/string.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/common/util.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/index.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/uniqueid.d.ts",
+      "e:/github/bash-models/src/commonmodel.ts",
+      "e:/github/bash-models/node_modules/ste-core/dist/management.d.ts",
+      "e:/github/bash-models/node_modules/ste-core/dist/definitions/subscribable.d.ts",
+      "e:/github/bash-models/node_modules/ste-core/dist/subscription.d.ts",
+      "e:/github/bash-models/node_modules/ste-core/dist/dispatching.d.ts",
+      "e:/github/bash-models/node_modules/ste-core/dist/definitions/handling.d.ts",
+      "e:/github/bash-models/node_modules/ste-core/dist/index.d.ts",
+      "e:/github/bash-models/node_modules/ste-simple-events/dist/definitions.d.ts",
+      "e:/github/bash-models/node_modules/ste-simple-events/dist/simple-events.d.ts",
+      "e:/github/bash-models/node_modules/ste-simple-events/dist/index.d.ts",
+      "e:/github/bash-models/src/errormodel.ts",
+      "e:/github/bash-models/node_modules/ste-events/dist/definitions.d.ts",
+      "e:/github/bash-models/node_modules/ste-events/dist/events.d.ts",
+      "e:/github/bash-models/node_modules/ste-events/dist/index.d.ts",
+      "e:/github/bash-models/src/parametermodel.ts",
+      "e:/github/bash-models/src/bashtemplates.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/padend.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/trimstart.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/trimend.d.ts",
+      "e:/github/bash-models/node_modules/@types/lodash/camelcase.d.ts",
+      "e:/github/bash-models/src/parsebash.ts",
+      "e:/github/bash-models/src/scriptmodel.ts",
+      "e:/github/bash-models/src/index.ts",
+      "e:/github/bash-models/node_modules/@types/chai/index.d.ts",
+      "e:/github/bash-models/node_modules/@types/mocha/index.d.ts"
+    ]
   },
   "version": "3.4.5"
 }
