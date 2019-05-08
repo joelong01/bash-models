@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import 'mocha';
 import { ParameterType, IScriptModelState, IErrorMessage } from "../commonModel";
 import ParameterModel from "../ParameterModel";
-import packageInfo from "../../../bash-models/package.json"
+import packageInfo from "../../package.json"
 
 export function dumpErrors(msg: string, errors: IErrorMessage[] | null) {
     console.log(msg);
@@ -19,15 +19,14 @@ export function dumpErrors(msg: string, errors: IErrorMessage[] | null) {
 
 const sm: ScriptModel = new ScriptModel();
 describe('Version Check', () => {
-    it('Bash Wizard', () => {
-        expect(sm.version).to.equal("1.0.0");
-    });
     it("Model version", () => {
+        //
+        //    the version in scriptModels.ts and the version in package.json have to match
         const npmVersion: string = packageInfo.version;
         expect(npmVersion).not.null;
         const toFind: string = "bash-models version ";
         const idx: number = sm.bashScript.indexOf(toFind);
-        const end:number = sm.bashScript.indexOf("\n", idx)
+        const end: number = sm.bashScript.indexOf("\n", idx)
         const start: number = toFind.length + idx;
         const modelVer: string = sm.bashScript.substring(start, end)
         expect(npmVersion).equal(modelVer);

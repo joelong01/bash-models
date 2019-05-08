@@ -806,7 +806,6 @@ export class ScriptModel {
             this.JSON = json;
             this.generateBashScript = false;
             // older version of Bash Wizard don't have a description field
-            // react doesn't like it when the state moves from "undefined" to a regular value
             this.Description = (objs.Description === undefined) ? "" : objs.Description;
             this.ScriptName = (objs.ScriptName === undefined) ? "" : objs.ScriptName;
             this.Version = (objs.Version === undefined) ? "" : objs.Version;
