@@ -176,7 +176,7 @@ export class ParseBash {
                 The general layout of the file is
 
                 #!/bin/bash
-                # bashWizard version <version>
+                # Bash Wizard version <version>
                 <BashWizard Functions>
                 # --- BEGIN USER CODE ---
 
@@ -216,7 +216,7 @@ export class ParseBash {
 
         //
         //  first look for the bash version
-        const versionLine: string = "# bashWizard version ";
+        const versionLine: string = "# Bash Wizard version ";
         let index: number = bashWizardCode.indexOf(versionLine);
         let userBashVersion: number = 0.1;
         let lines: string[];

@@ -3,27 +3,29 @@ export const bashTemplates =
     bashTemplate:
         `#!/bin/bash
 #---------- see https://github.com/joelong01/BashWizard ----------------
-# bashWizard version __VERSION__
+# Bash Wizard version __VERSION__
+# bash-models version 1.1.1
+#
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
 function echoError() {
     RED=$(tput setaf 1)
     NORMAL=$(tput sgr0)
-    echo "\${RED}\${1}\${NORMAL}"
+    echo "\${RED}\${*}\${NORMAL}"
 }
 function echoWarning() {
     YELLOW=$(tput setaf 3)
     NORMAL=$(tput sgr0)
-    echo "\${YELLOW}\${1}\${NORMAL}"
+    echo "\${YELLOW}\${*}\${NORMAL}"
 }
 function echoInfo() {
     GREEN=$(tput setaf 2)
     NORMAL=$(tput sgr0)
-    echo "\${GREEN}\${1}\${NORMAL}"
+    echo "\${GREEN}\${*}\${NORMAL}"
 }
 function echoIfVerbose() {
     if [[ "$verbose" == true ]]; then
-        echo "\${@}"
+        echo "\${*}"
     fi
 }
 # make sure this version of *nix supports the right getopt
@@ -100,8 +102,17 @@ __VERBOSE_ECHO__
 __END_LOGGING_SUPPORT__`,
     logTemplate:
         `#logging support
+if [[ -z "\${logDirectory}" ]]; then
+    echoWarning "Log Directory can't be empty.  setting to ."
+    logDirectory="./"
+fi
+# make sure that the logDirectory ends in a /
+if ! [[ "\${logDirectory}" =~ .*/$ ]]; then
+    logDirectory="\${logDirectory}/"
+fi
 declare LOG_FILE="\${logDirectory}__LOG_FILE_NAME__"
 {
+    echoIfVerbose "logFile is $LOG_FILE"
     mkdir -p "\${logDirectory}"
 } 2>>/dev/null
 #creating a tee so that we capture all the output to the log file
