@@ -4,6 +4,7 @@ import 'mocha';
 import { ParameterType, IScriptModelState, IErrorMessage } from "../commonModel";
 import ParameterModel from "../ParameterModel";
 import packageInfo from "../../package.json"
+import { ErrorModel } from "../errorModel";
 
 export function dumpErrors(msg: string, errors: IErrorMessage[] | null) {
     console.log(msg);
@@ -21,7 +22,7 @@ const sm: ScriptModel = new ScriptModel();
 describe('Version Check', () => {
     it("Model version", () => {
         //
-        //    the version in scriptModels.ts and the version in package.json have to match
+        //    the version in scriptModels.ts (set in bashemplates.ts) and the version in package.json have to match
         const npmVersion: string = packageInfo.version;
         expect(npmVersion).not.null;
         const toFind: string = "bash-models version ";
@@ -29,6 +30,9 @@ describe('Version Check', () => {
         const end: number = sm.bashScript.indexOf("\n", idx)
         const start: number = toFind.length + idx;
         const modelVer: string = sm.bashScript.substring(start, end)
+        if (npmVersion !== modelVer){
+            console.log ("the version in package.json line 3 and src/bashTemplates.ts:6:28 line 6 must be the same")
+        }
         expect(npmVersion).equal(modelVer);
     });
 });
@@ -236,5 +240,44 @@ describe("Generating Files and Round trip support", () => {
         validateRoundTrip(sm2);
 
     })
+
+})
+/**
+ *  this verifies that we can add built in parameters and then add a custom parameter and then add some user code and the user code is preserved
+ *
+ */
+
+describe("Preserve User Bash", () => {
+    const userBash:string = "# test";
+    var sm1:ScriptModel = new ScriptModel();
+    sm1.addParameter(ParameterType.Create);
+    sm1.addParameter(ParameterType.Verify)
+    sm1.addParameter(ParameterType.Delete)
+    sm1.addParameter(ParameterType.Verbose)
+    sm1.addParameter(ParameterType.InputFile)
+    sm1.addParameter(ParameterType.Logging)
+    const params:ParameterModel[]  = sm1.addParameter(ParameterType.Custom)
+    expect(sm1.parameters.length).to.equal(7);
+    const param:ParameterModel = params.slice(-1)[0];
+    expect(param).not.undefined;
+    expect(param.type).equal(ParameterType.Custom);
+    param.longParameter = "long-param";
+    param.shortParameter = "m";
+    param.variableName="longParameter";
+    param.default = "";
+    param.valueIfSet = "$2";
+    param.requiredParameter = true;
+    param.description = "this is a test parameter";
+    sm1.UserCode = userBash;
+    const bash: string = sm1.bashScript;
+    const start: number = bash.indexOf(userBash);
+    expect(start).greaterThan(0);
+    const end: number = start + userBash.length;
+    expect(end).greaterThan(start);
+    const generatedUserBash: string = bash.substring(start, end)
+    console.log("generatedBash: %s", generatedUserBash)
+    expect(userBash).equal(generatedUserBash);
+
+
 
 })
