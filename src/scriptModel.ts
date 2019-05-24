@@ -220,6 +220,7 @@ export class ScriptModel {
         if (value !== this._userCode) {
 
             this._userCode = value;
+            this.generateBashAndUpdateAll();
         }
     }
     get generateBashScript(): boolean {
