@@ -50,7 +50,7 @@ function jqInstalled() {
 
 # a variable used by the script to decide if it should prompt before installing dependencies.
 # users can change this true or false
-readonly AUTO_INSTALL_DEPENDENCIES=true
+readonly AUTO_INSTALL_DEPENDENCIES=false
 
 # if we modify the path because we had to install one of the dependencies, then we must reload
 # the shell to load the new path.  We use this variable to set that flag
