@@ -482,12 +482,14 @@ export class ScriptModel {
                 parseInputTemplate = parseInputTemplate.replace(/__SCRIPT_NAME__/g, this.ScriptName);
                 parseInputTemplate = parseInputTemplate.replace("__FILE_TO_SETTINGS__", parseInputFile);
                 sbBashScript = sbBashScript.replace("___PARSE_INPUT_FILE___", parseInputTemplate);
-                sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", bashTemplates.jqDependency);
+                sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", bashTemplates.installJqDependency);
+                sbBashScript = sbBashScript.replace("__CHECK_FOR_JQ__", bashTemplates.checkJqDependency);
 
             }
             else {
                 sbBashScript = sbBashScript.replace("___PARSE_INPUT_FILE___", "");
                 sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", "");
+                sbBashScript = sbBashScript.replace("__CHECK_FOR_JQ__", "");
             }
 
             sbBashScript = sbBashScript.replace("__REQUIRED_PARAMETERS__", requiredVariablesTemplate);

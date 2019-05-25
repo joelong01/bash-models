@@ -14,7 +14,7 @@ sm.addParameter(ParameterType.Create);
 sm.addParameter(ParameterType.Verify)
 sm.addParameter(ParameterType.Delete)
 sm.addParameter(ParameterType.Verbose)
-sm.addParameter(ParameterType.InputFile)
+// sm.addParameter(ParameterType.InputFile)
 sm.addParameter(ParameterType.Logging)
 //  i'll reparse it just to make sure...
 const sm1: ScriptModel = new ScriptModel();

@@ -3,7 +3,7 @@ export const bashTemplates =
     bashTemplate:
         `#!/bin/bash
 #---------- see https://github.com/joelong01/BashWizard and https://github.com/joelong01/bash-models----------------
-# bash-models version 1.1.3
+# bash-models version 1.1.4
 #
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
@@ -27,21 +27,65 @@ function echoIfVerbose() {
         echo "\${*}"
     fi
 }
-# make sure this version of *nix supports the right getopt
-! getopt --test 2>/dev/null
-if [[ \${PIPESTATUS[0]} -ne 4 ]]; then
-    echoError "'getopt --test' failed in this environment. please install getopt."
-    read -r -p "install getopt using brew? [y,n]" response
-    if [[ $response == 'y' ]] || [[ $response == 'Y' ]]; then
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
-        brew install gnu-getopt
-        #shellcheck disable=SC2016
-        echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~/.bash_profile
-        exec bash -l -i -- $0 "\${@}"
+
+
+function gnuGetOptInstalled() {
+    ! getopt --test >/dev/null
+    if [[ \${PIPESTATUS[0]} -ne 4 ]]; then
+        echo false
+    else
+        echo true
     fi
-   exit 1
+}
+
+function jqInstalled() {
+    declare loc=$(which jq)
+    if [[ $loc == "" ]]; then
+        echo false
+    else
+        echo true
+    fi
+}
+
+
+# a variable used by the script to decide if it should prompt before installing dependencies.
+# users can change this true or false
+readonly AUTO_INSTALL_DEPENDENCIES=true
+
+# if we modify the path because we had to install one of the dependencies, then we must reload
+# the shell to load the new path.  We use this variable to set that flag
+# export BW_PATH_MODIFIED=false
+declare GNU_GETOPT_INSTALLED=$(gnuGetOptInstalled)
+declare JQ_INSTALLED=$(jqInstalled)
+# make sure this version of *nix gnu-getopts installed. macs have a non-gnu-getops which doesn't support long parameters
+if [[ $GNU_GETOPT_INSTALLED = false __CHECK_FOR_JQ__ ]]; then
+    OS=$(uname)
+    if [[ $OS == "Darwin" ]]; then
+        if [[ $GNU_GETOPT_INSTALLED == false ]]; then
+            if [[ $AUTO_INSTALL_DEPENDENCIES != true ]]; then
+                read -r -p "install gnu-getopt using brew? [y,n]" response
+                if [[ $response != 'y' ]] && [[ $response != 'Y' ]]; then
+                    echoError "Missing gnu-getopt dependecy.  exiting."
+                    exit
+                fi
+            fi
+            echoInfo "installing gnu-getopt and updating path in ~/.bash_profile"
+            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null 2>/dev/null
+            brew install gnu-getopt
+            echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >>~/.bash_profile
+        fi
+        __JQ_DEPENDENCY__
+        # if we got here, we installed something.  so launch a new shell in the interactive mode and run this scrip ($0) with the parameters that were passed in ($"{@}")
+        #
+        # note that the '--' tells the exec command that everything after it is for the next command, not parameters for exec
+
+        #shellcheck disable=SC2016
+        exec bash -l -i -- $0 "\${@}"
+        exit
+    fi
 fi
-__JQ_DEPENDENCY__
+
+
 function usage() {
     __USAGE_INPUT_STATEMENT__
 __USAGE_LINE__ 1>&2
@@ -174,12 +218,21 @@ fi`,
     if [[ $verify == "true" ]]; then
         onVerify
     fi`,
-    jqDependency:
-        `# we have a dependency on jq
-    if [[ ! -x "$(command -v jq)" ]]; then
-        echoError "'jq is needed to run this script. Please install jq - see https://stedolan.github.io/jq/download/"
-        exit 1
-    fi`,
+    checkJqDependency:`|| $JQ_INSTALLED = false`,
+
+    installJqDependency:
+        `if [[ $JQ_INSTALLED == false ]]; then
+            if [[ $AUTO_INSTALL_DEPENDENCIES != true ]]; then
+                read -r -p "install jq using brew? [y,n]" response
+                if [[ $response != 'y' ]] && [[ $response != 'Y' ]]; then
+                    echoError "Missing jq dependency.  exiting."
+                    exit
+                fi
+            fi
+            # now install jq
+            brew install jq
+        fi
+`,
     verboseEcho:
         `    if [[ "$verbose" == true ]];then
         echoInput

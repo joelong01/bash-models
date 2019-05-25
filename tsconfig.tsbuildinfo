@@ -166,8 +166,8 @@
         "signature": "becc6e5bd497f3108826376357ad9174b2782978aff3f20f03d64733b322598e"
       },
       "/mnt/e/GitHub/bash-models/src/bashTemplates.ts": {
-        "version": "77e1dcab3beae233826efd8c0de91319b861bae73a65fb9a3774e867209ba1ad",
-        "signature": "9395427da27bb76807ccdb31a4a3cbf8aae67228df4dc864115363e20cf8899a"
+        "version": "765f216a268124b7eadf31da608099bd4e9935f36bddf658f789e5693f74f64b",
+        "signature": "1be76404305235e5af62017a85e030939979f0f52edaf0f0a764346f78c6dbdc"
       },
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/padEnd.d.ts": {
         "version": "a62d1249eabd7178d4b57780002b95a140fb88350e26597cc094d788d1d2d501",
@@ -190,8 +190,8 @@
         "signature": "ea2b688ef954f77c1debe8dd12c8a638186137948495e30d444a3b3f5c92cce1"
       },
       "/mnt/e/GitHub/bash-models/src/scriptModel.ts": {
-        "version": "2657155ba0c43d5c2132f013dbe8c0f0dfb26fe0f3b9ae79043bc8d517f2c35d",
-        "signature": "bf966fe9ab4ae5cc7f263b4f9615ab896b1b72e0273e5d4eefb8b6be5e5a7f7e"
+        "version": "43f34cea57dc04de9de5f80abd57d26d1be87477151478d05cc081d3a957a0fb",
+        "signature": "70da66f879e1ba96d7d23760b6d11ed5639a312957765d3a04ebab8b2d4de60d"
       },
       "/mnt/e/GitHub/bash-models/src/index.ts": {
         "version": "856f9f7e56c358202b31104fa6235a9a1995ba5a7a05c2c20656e5e67c29b162",
@@ -813,12 +813,12 @@
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/trimStart.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/trimEnd.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/camelCase.d.ts",
-      "/mnt/e/GitHub/bash-models/src/parseBash.ts",
-      "/mnt/e/GitHub/bash-models/src/scriptModel.ts",
-      "/mnt/e/GitHub/bash-models/src/index.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/chai/index.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/mocha/index.d.ts",
-      "/mnt/e/GitHub/bash-models/src/bashTemplates.ts"
+      "/mnt/e/GitHub/bash-models/src/bashTemplates.ts",
+      "/mnt/e/GitHub/bash-models/src/parseBash.ts",
+      "/mnt/e/GitHub/bash-models/src/scriptModel.ts",
+      "/mnt/e/GitHub/bash-models/src/index.ts"
     ]
   },
   "version": "3.4.5"
