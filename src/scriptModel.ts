@@ -22,11 +22,12 @@ export class ScriptModel {
     }
     //
     //  this are capitalized because JSON serlizes all data and it is easier to have them named the way we want to see them
-    //  in JSON than to still to a normal naming convention for member variables..
+    //  in JSON than to use a normal naming convention for member variables..
     private ScriptName: string = "";
     private Version: string = "1.0.0";
     private Description: string = "";;
     private Parameters: ParameterModel[] = [];
+    private AutoInstallDependencies: boolean = false;
 
     private fireChangeNotifications: boolean = false;
     private _bashScript: string = "";
@@ -484,17 +485,25 @@ export class ScriptModel {
                 sbBashScript = sbBashScript.replace("___PARSE_INPUT_FILE___", parseInputTemplate);
                 sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", bashTemplates.installJqDependency);
                 sbBashScript = sbBashScript.replace("__CHECK_FOR_JQ__", bashTemplates.checkJqDependency);
+                sbBashScript = sbBashScript.replace("__DETECT__JQ__", bashTemplates.checkJqFunction);
+                sbBashScript = sbBashScript.replace("__DECLARE_JQ_INSTALLED__", bashTemplates.declareJqInstalled);
 
             }
             else {
+                //
+                //  if we don't use the InputFile support, we don't have to do anything with JQ -- this makes sure
+                //  we empty out all references to JQ in the script
                 sbBashScript = sbBashScript.replace("___PARSE_INPUT_FILE___", "");
                 sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", "");
                 sbBashScript = sbBashScript.replace("__CHECK_FOR_JQ__", "");
+                sbBashScript = sbBashScript.replace("__DETECT__JQ__", "");
+                sbBashScript = sbBashScript.replace("__DECLARE_JQ_INSTALLED__", "");
             }
 
             sbBashScript = sbBashScript.replace("__REQUIRED_PARAMETERS__", requiredVariablesTemplate);
             sbBashScript = sbBashScript.replace("__LOGGING_SUPPORT_", logTemplate);
             sbBashScript = sbBashScript.replace("__END_LOGGING_SUPPORT__", this._builtInParameters.Logging !== undefined ? endLogTemplate : "");
+            sbBashScript = sbBashScript.replace("__AUTO_INSTALL__VALUE__", this.AutoInstallDependencies.toString());
 
             if (this._builtInParameters.Create !== undefined && this._builtInParameters.Verify !== undefined && this._builtInParameters.Delete !== undefined) {
                 if (!this.functionExists(this.UserCode, "onVerify") && !this.functionExists(this.UserCode, "onDelete") && !this.functionExists(this.UserCode, "onCreate")) {

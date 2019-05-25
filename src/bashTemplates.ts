@@ -38,27 +38,18 @@ function gnuGetOptInstalled() {
     fi
 }
 
-function jqInstalled() {
-    declare loc=$(which jq)
-    if [[ $loc == "" ]]; then
-        echo false
-    else
-        echo true
-    fi
-}
+__DETECT__JQ__
 
 
 # a variable used by the script to decide if it should prompt before installing dependencies.
 # users can change this true or false
-readonly AUTO_INSTALL_DEPENDENCIES=false
+readonly AUTO_INSTALL_DEPENDENCIES=__AUTO_INSTALL__VALUE__
 
-# if we modify the path because we had to install one of the dependencies, then we must reload
-# the shell to load the new path.  We use this variable to set that flag
-# export BW_PATH_MODIFIED=false
 declare GNU_GETOPT_INSTALLED=$(gnuGetOptInstalled)
-declare JQ_INSTALLED=$(jqInstalled)
+__DECLARE_JQ_INSTALLED__
+
 # make sure this version of *nix gnu-getopts installed. macs have a non-gnu-getops which doesn't support long parameters
-if [[ $GNU_GETOPT_INSTALLED = false __CHECK_FOR_JQ__ ]]; then
+if [[ $GNU_GETOPT_INSTALLED = false __CHECK_FOR_JQ__]]; then
     OS=$(uname)
     if [[ $OS == "Darwin" ]]; then
         if [[ $GNU_GETOPT_INSTALLED == false ]]; then
@@ -218,8 +209,16 @@ fi`,
     if [[ $verify == "true" ]]; then
         onVerify
     fi`,
-    checkJqDependency:`|| $JQ_INSTALLED = false`,
-
+    checkJqDependency:`|| $JQ_INSTALLED = false `,
+    checkJqFunction:`function jqInstalled() {
+    declare loc=$(which jq)
+    if [[ $loc == "" ]]; then
+        echo false
+    else
+        echo true
+    fi
+}`,
+    declareJqInstalled: `declare JQ_INSTALLED=$(jqInstalled)`,
     installJqDependency:
         `if [[ $JQ_INSTALLED == false ]]; then
             if [[ $AUTO_INSTALL_DEPENDENCIES != true ]]; then

@@ -1,5 +1,9 @@
 //
 //  this is a useful file to have if you change the templates and want to look at formatting
+//
+//  run it from the root with ts-node src/test/generateBashFile.ts
+//
+//  you have to have run npm install -g ts-node first...
 
 import { ScriptModel } from "../scriptModel"
 import { ParameterType } from "../commonModel";
@@ -14,7 +18,7 @@ sm.addParameter(ParameterType.Create);
 sm.addParameter(ParameterType.Verify)
 sm.addParameter(ParameterType.Delete)
 sm.addParameter(ParameterType.Verbose)
-// sm.addParameter(ParameterType.InputFile)
+//sm.addParameter(ParameterType.InputFile)
 sm.addParameter(ParameterType.Logging)
 //  i'll reparse it just to make sure...
 const sm1: ScriptModel = new ScriptModel();

@@ -126,7 +126,18 @@ export class ParseBash {
         return undefined;
     }
 
+    public autoInstallDependencies = (script:string):boolean {
+        const toFind = "readonly AUTO_INSTALL_DEPENDENCIES=";
+        const idx: number = script.indexOf(toFind);
 
+        if (idx !== -1) {
+            const val:string = script.substring(idx + toFind.length, script.indexOf("\n", idx) ).toLowerCase().trim();;
+            if (val === "true"){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public parseBash = (scriptModel: ScriptModel, input: string): boolean => {
         //

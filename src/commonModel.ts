@@ -12,6 +12,7 @@ export interface IScriptModelState {
     parameters: ParameterModel[];
     inputJson: string;
     debugConfig: string;
+    autoInstallDependencies: boolean;
 
 
 }
@@ -75,6 +76,7 @@ export interface IParseState {
     Parameters: ParameterModel[];
     ParseErrors: IErrorMessage[];
     UserCode: string;
+    AutoInstallDependencies: boolean;
     builtInParameters: { [key in keyof IBuiltInParameterName]: ParameterModel }; // this isn't in the this.state object because it doesn't affect the UI
 }
 
