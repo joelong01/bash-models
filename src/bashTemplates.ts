@@ -30,7 +30,7 @@ function echoIfVerbose() {
 
 
 function gnuGetOptInstalled() {
-    ! getopt --test >/dev/null
+    getopt --test >/dev/null
     if [[ \${PIPESTATUS[0]} -ne 4 ]]; then
         echo false
     else
@@ -45,7 +45,7 @@ __DETECT__JQ__
 # users can change this true or false
 readonly AUTO_INSTALL_DEPENDENCIES=__AUTO_INSTALL__VALUE__
 
-declare GNU_GETOPT_INSTALLED=$(gnuGetOptInstalled)
+GNU_GETOPT_INSTALLED=$(gnuGetOptInstalled)
 __DECLARE_JQ_INSTALLED__
 
 # make sure this version of *nix gnu-getopts installed. macs have a non-gnu-getops which doesn't support long parameters
@@ -63,15 +63,15 @@ if [[ $GNU_GETOPT_INSTALLED = false __CHECK_FOR_JQ__]]; then
             echoInfo "installing gnu-getopt and updating path in ~/.bash_profile"
             ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null 2>/dev/null
             brew install gnu-getopt
+            #Expressions don't expand in single quotes, use double quotes for that. - but we don't want $PATH expanded, so disable linter rule
+            #shellcheck disable=SC2016
             echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >>~/.bash_profile
         fi
         __JQ_DEPENDENCY__
         # if we got here, we installed something.  so launch a new shell in the interactive mode and run this scrip ($0) with the parameters that were passed in ($"{@}")
         #
         # note that the '--' tells the exec command that everything after it is for the next command, not parameters for exec
-
-        #shellcheck disable=SC2016
-        exec bash -l -i -- $0 "\${@}"
+        exec bash -l -i -- "\${0}" "\${@}"
         exit
     fi
 fi
@@ -97,7 +97,7 @@ function parseInput() {
     # -temporarily store output to be able to check for errors
     # -activate quoting/enhanced mode (e.g. by writing out "--options")
     # -pass arguments only via -- "$@" to separate them correctly
-    ! PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@")
+    PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@")
     if [[ \${PIPESTATUS[0]} -ne 0 ]]; then
         # e.g. return value is 1
         # then getopt has complained about wrong arguments to stdout
@@ -209,16 +209,15 @@ fi`,
     if [[ $verify == "true" ]]; then
         onVerify
     fi`,
-    checkJqDependency:`|| $JQ_INSTALLED = false `,
-    checkJqFunction:`function jqInstalled() {
-    declare loc=$(which jq)
-    if [[ $loc == "" ]]; then
-        echo false
-    else
-        echo true
-    fi
-}`,
-    declareJqInstalled: `declare JQ_INSTALLED=$(jqInstalled)`,
+    checkJqDependency: `|| $JQ_INSTALLED = false `,
+    checkJqFunction: `function jqInstalled() {
+        if [[ -z $(command -v jq) ]]; then
+            echo false
+        else
+            echo true
+        fi
+    }`,
+    declareJqInstalled: `JQ_INSTALLED=$(jqInstalled)`,
     installJqDependency:
         `if [[ $JQ_INSTALLED == false ]]; then
             if [[ $AUTO_INSTALL_DEPENDENCIES != true ]]; then

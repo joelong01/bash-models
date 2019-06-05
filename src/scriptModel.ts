@@ -26,8 +26,9 @@ export class ScriptModel {
     private ScriptName: string = "";
     private Version: string = "1.0.0";
     private Description: string = "";;
-    private Parameters: ParameterModel[] = [];
     private AutoInstallDependencies: boolean = false;
+    private Parameters: ParameterModel[] = [];
+
 
     private fireChangeNotifications: boolean = false;
     private _bashScript: string = "";
@@ -58,12 +59,15 @@ export class ScriptModel {
             this.propertyChangedEvent.dispatch({
                 scriptName: this.ScriptName,
                 description: this.Description,
+                autoInstallDependencies: this.AutoInstallDependencies,
                 parameters: this.Parameters,
                 Errors: this._errorModel.Errors,
                 JSON: this.JSON,
                 debugConfig: this.debugConfig,
                 inputJson: this.inputJSON,
                 bashScript: this.bashScript
+
+
             })
         }
     }
@@ -275,6 +279,18 @@ export class ScriptModel {
         }
     }
 
+    get autoInstallDependencies():boolean {
+        return this.AutoInstallDependencies;
+    }
+    set autoInstallDependencies(val:boolean) {
+                if (val != this.AutoInstallDependencies) {
+
+            this.AutoInstallDependencies = val;
+            this.clearErrorsAndValidateParameters(ValidationOptions.ClearErrors);
+            this.generateBashAndUpdateAll();
+        }
+
+    }
 
     get version(): string {
         return this.Version;
@@ -576,7 +592,7 @@ export class ScriptModel {
             return value;
         }
 
-        if (name === "ScriptName" || name === "Parameters" || name === "Description" || name === "Version") {
+        if (name === "ScriptName" || name === "Parameters" || name === "Description" || name === "Version" || name === "AutoInstallDependencies") {
             return value;
         }
         //
@@ -821,7 +837,7 @@ export class ScriptModel {
             this.Description = (objs.Description === undefined) ? "" : objs.Description;
             this.ScriptName = (objs.ScriptName === undefined) ? "" : objs.ScriptName;
             this.Version = (objs.Version === undefined) ? "" : objs.Version;
-
+            this.AutoInstallDependencies = (objs.AutoInstallDependencies == undefined) ? false : (objs.AutoInstallDependencies);
 
             //
             //  these unserialized things are only partially ParameterModels -- create the real ones

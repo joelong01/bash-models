@@ -126,13 +126,13 @@ export class ParseBash {
         return undefined;
     }
 
-    public autoInstallDependencies = (script:string):boolean {
+    public autoInstallDependencies = (script: string): boolean => {
         const toFind = "readonly AUTO_INSTALL_DEPENDENCIES=";
         const idx: number = script.indexOf(toFind);
 
         if (idx !== -1) {
-            const val:string = script.substring(idx + toFind.length, script.indexOf("\n", idx) ).toLowerCase().trim();;
-            if (val === "true"){
+            const val: string = script.substring(idx + toFind.length, script.indexOf("\n", idx)).toLowerCase().trim();
+            if (val === "true") {
                 return true;
             }
         }
@@ -154,27 +154,6 @@ export class ParseBash {
         const noParseInput: string = "Could not locate the parseInput() function in the bashScript";
 
 
-        //
-        //  make sure that we deal with the case of getting a file with EOL == \n\r.  we only want \n
-        //  I've also had scenarios where I get only \r...fix those too.
-        /*  if (input.indexOf("\n") !== -1) {
-             //
-             //  we have some new lines, just kill the \r
-             if (input.indexOf("\r") !== -1) {
-                 input = input.replace(new RegExp(/\r/, "g"), "");
-
-             }
-         }
-         else if (input.indexOf("\r") !== -1) {
-             // no \n, but we have \r
-             input = input.replace(new RegExp(/\r/,"g"), "\n");
-         }
-         else {
-             // no \r and no \n
-             this.addParseError(parseState.Errors, noNewLines);
-             return parseState;
-         }
-  */
 
         //
         // make sure the file doesn't have GIT merge conflicts
@@ -231,7 +210,7 @@ export class ParseBash {
         let index: number = bashWizardCode.indexOf(versionLine);
         //
         //  for older versions
-        if (index === -1){
+        if (index === -1) {
             versionLine = "# Bash Wizard version "
             index = bashWizardCode.indexOf(versionLine);
         }
@@ -250,6 +229,9 @@ export class ParseBash {
             }
         }
 
+        //
+        // find the AutoInstallDependencies flag
+        scriptModel.autoInstallDependencies = this.autoInstallDependencies(input);
 
         //
         //  find the usage() function and parse it out - this gives us the 4 properties in the ParameterModel below

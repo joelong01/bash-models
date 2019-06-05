@@ -106,8 +106,8 @@
         "signature": "b5a087fa7b3636e3bf109b26c7f9ad5e8826a280cc06533e59e02993df143f4c"
       },
       "/mnt/e/GitHub/bash-models/src/commonModel.ts": {
-        "version": "dc1f2adc95b07f92c90395490707138ad0d706d7b5159bd148c056c7ca2d745e",
-        "signature": "953d10b8005ce912945195ecf88fb7cc35186afab21f369bcdebb7a04efa5b10"
+        "version": "367a8162dca2bc122d250fb7a0c9c3f598e2296c438951e916ad6d1ccc063300",
+        "signature": "54f7765ba19830de0b78b0f82b448b2f4bb76ad7ac8b8f5dd3641f379c9f5dd0"
       },
       "/mnt/e/GitHub/bash-models/node_modules/ste-core/dist/management.d.ts": {
         "version": "fe64f31041b278cac160d6e8746c9afefb464143c0d9f0c1ddfe5984de552de6",
@@ -166,8 +166,8 @@
         "signature": "becc6e5bd497f3108826376357ad9174b2782978aff3f20f03d64733b322598e"
       },
       "/mnt/e/GitHub/bash-models/src/bashTemplates.ts": {
-        "version": "765f216a268124b7eadf31da608099bd4e9935f36bddf658f789e5693f74f64b",
-        "signature": "1be76404305235e5af62017a85e030939979f0f52edaf0f0a764346f78c6dbdc"
+        "version": "6efdcbc5f3a91a3fe7352ace36e9873a00e6846382de90e52457bd88f08c1ad2",
+        "signature": "fdc30ef65427cbe4c9ea1677030480b5c8e0aa00fd128fe100833576da5ce18c"
       },
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/padEnd.d.ts": {
         "version": "a62d1249eabd7178d4b57780002b95a140fb88350e26597cc094d788d1d2d501",
@@ -186,12 +186,12 @@
         "signature": "afc0c6e4b663dbdf3de4faa08e1a693662a74ffc562c860adda8c55f84cf1b9d"
       },
       "/mnt/e/GitHub/bash-models/src/parseBash.ts": {
-        "version": "bd8d63fe3a72aa8f69eb6a6418aed209adc11d37966ee8f147a292c92dee755c",
-        "signature": "ea2b688ef954f77c1debe8dd12c8a638186137948495e30d444a3b3f5c92cce1"
+        "version": "5588ff015323a097e0bbedff1e5857447ffbd846601807155b7005a4cf9b283b",
+        "signature": "8db8b70b575524bc3391d34a65862598f09aa3a05fbaf8deacf9d863806a740c"
       },
       "/mnt/e/GitHub/bash-models/src/scriptModel.ts": {
-        "version": "43f34cea57dc04de9de5f80abd57d26d1be87477151478d05cc081d3a957a0fb",
-        "signature": "70da66f879e1ba96d7d23760b6d11ed5639a312957765d3a04ebab8b2d4de60d"
+        "version": "044e1a4e87437e7cfe355b0afbba4ab602e3e7cff6ff6522cef97fa2ebe795e5",
+        "signature": "7b68c608f25ab5fb537646ee7d5041601f8bf88ebbe525b0effda31b753563a1"
       },
       "/mnt/e/GitHub/bash-models/src/index.ts": {
         "version": "856f9f7e56c358202b31104fa6235a9a1995ba5a7a05c2c20656e5e67c29b162",

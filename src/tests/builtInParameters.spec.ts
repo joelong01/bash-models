@@ -4,7 +4,7 @@ import 'mocha';
 import { ParameterType, IScriptModelState, IErrorMessage } from "../commonModel";
 import ParameterModel from "../ParameterModel";
 import packageInfo from "../../package.json"
-import { ErrorModel } from "../errorModel";
+
 
 export function dumpErrors(msg: string, errors: IErrorMessage[] | null) {
     if (errors === null) {
@@ -216,6 +216,9 @@ describe("Generating Files and Round trip support", () => {
     it("generate bash", () => {
         const bash: string = sm.bashScript;
         expect(bash.length).to.be.greaterThan(6000);
+    })
+    it ("autoInstallDependencies default to false", () => {
+        expect(sm.autoInstallDependencies).equal(false);
     })
     it("generate json", () => {
         expect(sm.JSON.length).to.be.greaterThan(2500); // 2517 chars in .909
