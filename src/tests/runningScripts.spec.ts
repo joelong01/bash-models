@@ -1,8 +1,19 @@
+/***
+ *  this test file will create a bash file and then run it looking at the output
+ *
+ *  it also looks for code in the file based on the parameters/options that are
+ *  selected.  this might turn out to be problamatic because as the code evolves,
+ *  the test will have to be updated.  i'm hoping that it means only deliberate
+ *  changes are introduced.
+ *
+ */
+
+
+
 import { ScriptModel } from "../scriptModel"
 import { expect } from 'chai';
 import 'mocha';
-import { ParameterType, IScriptModelState, IErrorMessage } from "../commonModel";
-import ParameterModel from "../ParameterModel";
+import { ParameterType } from "../commonModel";
 import * as fs from 'fs';
 import { exec, ExecException } from "child_process";
 
@@ -182,8 +193,16 @@ describe('Running Script', () => {
     });
 })
 
-function NoWhiteSpace(inString: string): string {
-    return inString.replace(/\s/g, "")
+/**
+ * .replace() with /\s+/g regexp is changing all groups of white-spaces characters to a single space in the whole string then we .trim() the result to remove all exceeding white-spaces before and after the text.
+ *  Are considered as white-spaces characters: [ \f\n\r\t\v​\u00a0\u1680​\u2000​-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]
+ *
+ * we need this because getting the whitepace exactly right when comparing the output of the scripts proved difficult
+ *
+ * @param inString the string to cleanup
+ */
+function CleanupWhiteSpace(inString: string): string {
+   return inString.replace(/\s+/g, '').trim();
 }
 
 describe('Code Analysis', () => {
@@ -196,7 +215,7 @@ describe('Code Analysis', () => {
     })
 
     it("verifying inputFile", () => {
-        const jqFunc: string = NoWhiteSpace(`function jqInstalled() {
+        const jqFunc: string = CleanupWhiteSpace(`function jqInstalled() {
             if [[ -z $(command -v jq) ]]; then
                 echo false
             else
@@ -204,7 +223,7 @@ describe('Code Analysis', () => {
             fi
         }`)
 
-        const installJq: string = NoWhiteSpace(`
+        const installJq: string = CleanupWhiteSpace(`
         if [[ $JQ_INSTALLED == false ]]; then
             if [[ $AUTO_INSTALL_DEPENDENCIES != true ]]; then
                 read -r -p "install jq using brew? [y,n]" response
@@ -217,7 +236,7 @@ describe('Code Analysis', () => {
             brew install jq
         fi`);
 
-        const readInputFromFile: string = NoWhiteSpace(`# if command line tells us to parse an input file
+        const readInputFromFile: string = CleanupWhiteSpace(`# if command line tells us to parse an input file
         if [ "\${inputFile}" != "" ]; then
             # load parameters from the file
             configSection=$(jq . <"\${inputFile}" | jq '."test1.sh"')
@@ -237,7 +256,9 @@ describe('Code Analysis', () => {
         //
         //  if the InputFile parameter is present, we have a bunch of JQ specific code in the script
         //  make sure it is there
-        var bashNoWhiteSpace: string = NoWhiteSpace(sm.bashScript);
+        var bashNoWhiteSpace: string = CleanupWhiteSpace(sm.bashScript);
+        fs.writeFileSync(outputDir + "bashNoWhiteSpace.sh", bashNoWhiteSpace);
+        fs.writeFileSync(outputDir + "jqfunc.sh", jqFunc);
         expect(sm.BuiltInParameters.InputFile).not.null;
         expect(bashNoWhiteSpace.includes(jqFunc)).true;
         expect(bashNoWhiteSpace.includes(installJq)).true;
@@ -247,17 +268,17 @@ describe('Code Analysis', () => {
         //
         //  take the parameter out and make sure the code is not there
         sm.deleteParameter(sm.BuiltInParameters.InputFile!);
-        bashNoWhiteSpace = NoWhiteSpace(sm.bashScript);
+        bashNoWhiteSpace = CleanupWhiteSpace(sm.bashScript);
         expect(sm.BuiltInParameters.InputFile).is.undefined;
         expect(bashNoWhiteSpace.includes(jqFunc)).false;
         expect(bashNoWhiteSpace.includes("JQ_INSTALLED=$(jqInstalled)")).false;
-        expect(bashNoWhiteSpace.includes(NoWhiteSpace(`if [ "\${inputFile}" != "" ]; then`))).false;
+        expect(bashNoWhiteSpace.includes(CleanupWhiteSpace(`if [ "\${inputFile}" != "" ]; then`))).false;
     })
 
     it("verifying logging support", () => {
         expect(sm.BuiltInParameters.Logging).not.null;
         expect(sm.BuiltInParameters.Logging).not.undefined;
-        const loggingScript: string = NoWhiteSpace(`#logging support
+        const loggingScript: string = CleanupWhiteSpace(`#logging support
         if [[ -z "\${logDirectory}" ]]; then
             echoWarning "Log Directory can't be empty.  setting to ."
             logDirectory="./"
@@ -276,15 +297,15 @@ describe('Code Analysis', () => {
             time=$(date +"%m/%d/%y on %r")
             echo "started  \${0}" "\${@}" "@ $time"`)
 
-        const endTee: string = NoWhiteSpace(`time=$(date +"%m/%d/%y on %r")echo "ended:  \${0}" "\${@}" "@ $time"} | tee -a "\${LOG_FILE}"`)
+        const endTee: string = CleanupWhiteSpace(`time=$(date +"%m/%d/%y on %r")echo "ended:  \${0}" "\${@}" "@ $time"} | tee -a "\${LOG_FILE}"`)
 
-        var bashNoWhiteSpace: string = NoWhiteSpace(sm.bashScript);
+        var bashNoWhiteSpace: string = CleanupWhiteSpace(sm.bashScript);
         expect(bashNoWhiteSpace.includes(loggingScript)).true;
         expect(bashNoWhiteSpace.includes(endTee)).true;
 
         sm.deleteParameter(sm.BuiltInParameters.Logging!);
         expect(sm.BuiltInParameters.Logging).is.undefined;
-        bashNoWhiteSpace = NoWhiteSpace(sm.bashScript);
+        bashNoWhiteSpace = CleanupWhiteSpace(sm.bashScript);
         expect(bashNoWhiteSpace.includes(loggingScript)).false;
         expect(bashNoWhiteSpace.includes(loggingScript)).false;
         expect(bashNoWhiteSpace.includes(endTee)).false;
@@ -294,23 +315,56 @@ describe('Code Analysis', () => {
         sm.addParameter(ParameterType.Logging) // needed for the checkLog
         expect(sm.BuiltInParameters.Verbose).not.null;
         expect(sm.BuiltInParameters.Verbose).not.undefined;
-        const declareVar:string = NoWhiteSpace(`declare verbose=false`)
-        const checkLog:string = NoWhiteSpace(` echoIfVerbose "logFile is \$LOG_FILE"`)
-        const echoOutPut:string = NoWhiteSpace('if [[ "\$verbose" == true ]];then echoInput fi')
-        var bashNoWhiteSpace: string = NoWhiteSpace(sm.bashScript);
+        const declareVar:string = CleanupWhiteSpace(`declare verbose=false`)
+        const checkLog:string = CleanupWhiteSpace(` echoIfVerbose "logFile is \$LOG_FILE"`)
+        const echoOutPut:string = CleanupWhiteSpace('if [[ "\$verbose" == true ]];then echoInput fi')
+        var bashNoWhiteSpace: string = CleanupWhiteSpace(sm.bashScript);
         expect(bashNoWhiteSpace.includes(declareVar)).true;
         expect(bashNoWhiteSpace.includes(checkLog)).true;
         expect(bashNoWhiteSpace.includes(echoOutPut)).true;
         sm.deleteParameter(sm.BuiltInParameters.Verbose!);
         expect(sm.BuiltInParameters.Verbose).is.undefined;
-        bashNoWhiteSpace = NoWhiteSpace(sm.bashScript);
+        bashNoWhiteSpace = CleanupWhiteSpace(sm.bashScript);
         expect(bashNoWhiteSpace.includes(declareVar)).false;
         expect(bashNoWhiteSpace.includes(checkLog)).true; // this is inside an echoIfVerbose, so it is not dependent on the Verbose var being present...bug?
         expect(bashNoWhiteSpace.includes(echoOutPut)).false;
 
     })
 
+    it("verifying create, verify, delete", () => {
+        sm.addParameter(ParameterType.Create) // needed for the checkLog
+        sm.addParameter(ParameterType.Verify) // needed for the checkLog
+        sm.addParameter(ParameterType.Delete) // needed for the checkLog
+        expect(sm.BuiltInParameters.Create).not.null;
+        expect(sm.BuiltInParameters.Create).not.undefined;
+        expect(sm.BuiltInParameters.Verify).not.null;
+        expect(sm.BuiltInParameters.Verify).not.undefined;
+        expect(sm.BuiltInParameters.Delete).not.null;
+        expect(sm.BuiltInParameters.Delete).not.undefined;
+
+        const verifyFunc = CleanupWhiteSpace(`function onVerify() {echo "onVerify"}`)
+        const delFunc = CleanupWhiteSpace(`function onDelete() {echo "onDelete"}`)
+        const createFunc = CleanupWhiteSpace(`function onCreate() {echo "onCreate"}`)
+
+        var bashNoWhiteSpace: string = CleanupWhiteSpace(sm.bashScript);
+        expect(bashNoWhiteSpace.includes(verifyFunc)).true;
+        expect(bashNoWhiteSpace.includes(delFunc)).true;
+        expect(bashNoWhiteSpace.includes(createFunc)).true;
+        sm.deleteParameter(sm.BuiltInParameters.Create!);
+        sm.deleteParameter(sm.BuiltInParameters.Verify!);
+        sm.deleteParameter(sm.BuiltInParameters.Delete!);
+
+        expect(sm.BuiltInParameters.Create).is.undefined;
+        expect(sm.BuiltInParameters.Verify).is.undefined;
+        expect(sm.BuiltInParameters.Delete).is.undefined;
+        bashNoWhiteSpace = CleanupWhiteSpace(sm.bashScript);
+        expect(bashNoWhiteSpace.includes(verifyFunc)).false;
+        expect(bashNoWhiteSpace.includes(delFunc)).false;
+        expect(bashNoWhiteSpace.includes(createFunc)).false;
+
+    })
+
 })
 
 
-// fs.unlinkSync(scriptName);
+
