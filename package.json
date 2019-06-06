@@ -1,6 +1,6 @@
 {
     "name": "bash-models",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "A set of models that expose APIs for parsing, creating, and manipulating Bash Files",
     "scripts": {
         "clean": "rimraf ./dist.",
