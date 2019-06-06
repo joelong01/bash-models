@@ -3,7 +3,7 @@ export const bashTemplates =
     bashTemplate:
         `#!/bin/bash
 #---------- see https://github.com/joelong01/BashWizard and https://github.com/joelong01/bash-models----------------
-# bash-models version 1.1.4
+# bash-models version 1.1.5
 #
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
