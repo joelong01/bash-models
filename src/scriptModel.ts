@@ -22,11 +22,13 @@ export class ScriptModel {
     }
     //
     //  this are capitalized because JSON serlizes all data and it is easier to have them named the way we want to see them
-    //  in JSON than to still to a normal naming convention for member variables..
+    //  in JSON than to use a normal naming convention for member variables..
     private ScriptName: string = "";
     private Version: string = "1.0.0";
     private Description: string = "";;
+    private AutoInstallDependencies: boolean = false;
     private Parameters: ParameterModel[] = [];
+
 
     private fireChangeNotifications: boolean = false;
     private _bashScript: string = "";
@@ -57,12 +59,15 @@ export class ScriptModel {
             this.propertyChangedEvent.dispatch({
                 scriptName: this.ScriptName,
                 description: this.Description,
+                autoInstallDependencies: this.AutoInstallDependencies,
                 parameters: this.Parameters,
                 Errors: this._errorModel.Errors,
                 JSON: this.JSON,
                 debugConfig: this.debugConfig,
                 inputJson: this.inputJSON,
                 bashScript: this.bashScript
+
+
             })
         }
     }
@@ -274,6 +279,18 @@ export class ScriptModel {
         }
     }
 
+    get autoInstallDependencies():boolean {
+        return this.AutoInstallDependencies;
+    }
+    set autoInstallDependencies(val:boolean) {
+                if (val != this.AutoInstallDependencies) {
+
+            this.AutoInstallDependencies = val;
+            this.clearErrorsAndValidateParameters(ValidationOptions.ClearErrors);
+            this.generateBashAndUpdateAll();
+        }
+
+    }
 
     get version(): string {
         return this.Version;
@@ -482,17 +499,27 @@ export class ScriptModel {
                 parseInputTemplate = parseInputTemplate.replace(/__SCRIPT_NAME__/g, this.ScriptName);
                 parseInputTemplate = parseInputTemplate.replace("__FILE_TO_SETTINGS__", parseInputFile);
                 sbBashScript = sbBashScript.replace("___PARSE_INPUT_FILE___", parseInputTemplate);
-                sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", bashTemplates.jqDependency);
+                sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", bashTemplates.installJqDependency);
+                sbBashScript = sbBashScript.replace("__CHECK_FOR_JQ__", bashTemplates.checkJqDependency);
+                sbBashScript = sbBashScript.replace("__DETECT__JQ__", bashTemplates.checkJqFunction);
+                sbBashScript = sbBashScript.replace("__DECLARE_JQ_INSTALLED__", bashTemplates.declareJqInstalled);
 
             }
             else {
+                //
+                //  if we don't use the InputFile support, we don't have to do anything with JQ -- this makes sure
+                //  we empty out all references to JQ in the script
                 sbBashScript = sbBashScript.replace("___PARSE_INPUT_FILE___", "");
                 sbBashScript = sbBashScript.replace("__JQ_DEPENDENCY__", "");
+                sbBashScript = sbBashScript.replace("__CHECK_FOR_JQ__", "");
+                sbBashScript = sbBashScript.replace("__DETECT__JQ__", "");
+                sbBashScript = sbBashScript.replace("__DECLARE_JQ_INSTALLED__", "");
             }
 
             sbBashScript = sbBashScript.replace("__REQUIRED_PARAMETERS__", requiredVariablesTemplate);
             sbBashScript = sbBashScript.replace("__LOGGING_SUPPORT_", logTemplate);
             sbBashScript = sbBashScript.replace("__END_LOGGING_SUPPORT__", this._builtInParameters.Logging !== undefined ? endLogTemplate : "");
+            sbBashScript = sbBashScript.replace("__AUTO_INSTALL__VALUE__", this.AutoInstallDependencies.toString());
 
             if (this._builtInParameters.Create !== undefined && this._builtInParameters.Verify !== undefined && this._builtInParameters.Delete !== undefined) {
                 if (!this.functionExists(this.UserCode, "onVerify") && !this.functionExists(this.UserCode, "onDelete") && !this.functionExists(this.UserCode, "onCreate")) {
@@ -565,7 +592,7 @@ export class ScriptModel {
             return value;
         }
 
-        if (name === "ScriptName" || name === "Parameters" || name === "Description" || name === "Version") {
+        if (name === "ScriptName" || name === "Parameters" || name === "Description" || name === "Version" || name === "AutoInstallDependencies") {
             return value;
         }
         //
@@ -810,7 +837,7 @@ export class ScriptModel {
             this.Description = (objs.Description === undefined) ? "" : objs.Description;
             this.ScriptName = (objs.ScriptName === undefined) ? "" : objs.ScriptName;
             this.Version = (objs.Version === undefined) ? "" : objs.Version;
-
+            this.AutoInstallDependencies = (objs.AutoInstallDependencies == undefined) ? false : (objs.AutoInstallDependencies);
 
             //
             //  these unserialized things are only partially ParameterModels -- create the real ones
