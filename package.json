@@ -1,6 +1,6 @@
 {
     "name": "bash-models",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "A set of models that expose APIs for parsing, creating, and manipulating Bash Files",
     "scripts": {
         "clean": "rimraf ./dist.",
@@ -35,7 +35,7 @@
     },
     "homepage": "https://github.com/joelong01/bash-models#readme",
     "dependencies": {
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.15",
         "strongly-typed-events": "^1.4.10"
     },
     "devDependencies": {

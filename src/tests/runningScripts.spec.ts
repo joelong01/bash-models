@@ -15,6 +15,7 @@ import { expect } from 'chai';
 import 'mocha';
 import { ParameterType } from "../commonModel";
 import * as fs from 'fs';
+import * as os from 'os';
 import { exec, ExecException } from "child_process";
 
 const outputDir = "./testOutput/";
@@ -23,6 +24,7 @@ const logDirectory: string = outputDir;
 const inputFileName: string = "test1.input.json";
 const description: string = "a test script";
 const sm: ScriptModel = new ScriptModel();
+const osType:string = os.platform();
 
 function dumpExecValues(error: ExecException | null, output: string, stderr: string) {
     console.log("Errors")
@@ -36,6 +38,7 @@ function dumpExecValues(error: ExecException | null, output: string, stderr: str
     console.log(stderr)
 }
 before((done) => {
+
     // console.log("before")
     if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir);
@@ -83,7 +86,12 @@ after((done) => {
     done();
 })
 describe('Running Script', () => {
+    expect (osType).not.equal("win32", "these tests don't run on win32.  run in WSL if on windows");
+    if (osType == "win32") {
+        return;
+    }
     it("creating script", () => {
+
         expect(fs.existsSync(outputDir + scriptName)).true;
     })
     it("verify bad input", () => {
@@ -206,7 +214,10 @@ function CleanupWhiteSpace(inString: string): string {
 }
 
 describe('Code Analysis', () => {
-
+    expect (osType).not.equal("win32", "these tests don't run on win32.  run in bash if on windows");
+    if (osType == "win32") {
+        return;
+    }
     it("verifying autoInstallDependencies", () => {
         sm.autoInstallDependencies = true;
         expect(sm.bashScript.includes("readonly AUTO_INSTALL_DEPENDENCIES=true")).true;
