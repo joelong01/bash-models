@@ -3,7 +3,7 @@ export const bashTemplates =
     bashTemplate:
         `#!/bin/bash
 #---------- see https://github.com/joelong01/BashWizard and https://github.com/joelong01/bash-models----------------
-# bash-models version 1.1.6
+# bash-models version 1.1.9
 #
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
@@ -66,6 +66,9 @@ if [[ $GNU_GETOPT_INSTALLED = false __CHECK_FOR_JQ__]]; then
             #Expressions don't expand in single quotes, use double quotes for that. - but we don't want $PATH expanded, so disable linter rule
             #shellcheck disable=SC2016
             echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >>~/.bash_profile
+            # in case urers want to use zsh
+            #shellcheck disable=SC2016
+            echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~/.zshrc
         fi
         __JQ_DEPENDENCY__
         # if we got here, we installed something.  so launch a new shell in the interactive mode and run this scrip ($0) with the parameters that were passed in ($"{@}")
