@@ -300,7 +300,7 @@ describe('Code Analysis', () => {
         fi
         declare LOG_FILE="\${logDirectory}test1.sh.log"
         {
-            echoIfVerbose "logFile is $LOG_FILE"
+            echoInfo "logFile is $LOG_FILE"
             mkdir -p "\${logDirectory}"
         } 2>>/dev/null
         #creating a tee so that we capture all the output to the log file
@@ -327,7 +327,7 @@ describe('Code Analysis', () => {
         expect(sm.BuiltInParameters.Verbose).not.null;
         expect(sm.BuiltInParameters.Verbose).not.undefined;
         const declareVar:string = CleanupWhiteSpace(`declare verbose=false`)
-        const checkLog:string = CleanupWhiteSpace(` echoIfVerbose "logFile is \$LOG_FILE"`)
+        const checkLog:string = CleanupWhiteSpace(` echoInfo "logFile is \$LOG_FILE"`)
         const echoOutPut:string = CleanupWhiteSpace('if [[ "\$verbose" == true ]];then echoInput fi')
         var bashNoWhiteSpace: string = CleanupWhiteSpace(sm.bashScript);
         expect(bashNoWhiteSpace.includes(declareVar)).true;

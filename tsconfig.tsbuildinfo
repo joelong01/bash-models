@@ -226,7 +226,7 @@
         "signature": "becc6e5bd497f3108826376357ad9174b2782978aff3f20f03d64733b322598e"
       },
       "/mnt/e/GitHub/bash-models/src/bashTemplates.ts": {
-        "version": "a1b51841673bc567c940aeeb3fce0c8dffc0b004f7db365321cf5e5f3b61774e",
+        "version": "dfc8476dedc1cfe18b4b899a8b49e0b89f825c072540f595d7376d87a1574e7c",
         "signature": "a72c679c24f5728eab2c42605965d90f85c969aa75dbe1929211e011d6de8a22"
       },
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/padEnd.d.ts": {
@@ -1976,10 +1976,14 @@
       "/mnt/e/GitHub/bash-models/node_modules/ste-events/dist/events.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/ste-events/dist/index.d.ts",
       "/mnt/e/GitHub/bash-models/src/ParameterModel.ts",
+      "/mnt/e/GitHub/bash-models/src/bashTemplates.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/padEnd.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/trimStart.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/trimEnd.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/camelCase.d.ts",
+      "/mnt/e/GitHub/bash-models/src/parseBash.ts",
+      "/mnt/e/GitHub/bash-models/src/scriptModel.ts",
+      "/mnt/e/GitHub/bash-models/src/index.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/chai/index.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/mocha/index.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/globals.d.ts",
@@ -2025,11 +2029,7 @@
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/base.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/ts3.2/util.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/ts3.2/globals.d.ts",
-      "/mnt/e/GitHub/bash-models/node_modules/@types/node/ts3.2/index.d.ts",
-      "/mnt/e/GitHub/bash-models/src/bashTemplates.ts",
-      "/mnt/e/GitHub/bash-models/src/parseBash.ts",
-      "/mnt/e/GitHub/bash-models/src/scriptModel.ts",
-      "/mnt/e/GitHub/bash-models/src/index.ts"
+      "/mnt/e/GitHub/bash-models/node_modules/@types/node/ts3.2/index.d.ts"
     ]
   },
   "version": "3.5.1"

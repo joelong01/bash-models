@@ -3,7 +3,7 @@ export const bashTemplates =
     bashTemplate:
         `#!/bin/bash
 #---------- see https://github.com/joelong01/BashWizard and https://github.com/joelong01/bash-models----------------
-# bash-models version 1.1.11
+# bash-models version 1.1.12
 #
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
@@ -144,7 +144,7 @@ if ! [[ "\${logDirectory}" =~ .*/$ ]]; then
 fi
 declare LOG_FILE="\${logDirectory}__LOG_FILE_NAME__"
 {
-    echoIfVerbose "logFile is $LOG_FILE"
+    echoInfo "logFile is $LOG_FILE"
     mkdir -p "\${logDirectory}"
 } 2>>/dev/null
 #creating a tee so that we capture all the output to the log file
@@ -234,7 +234,7 @@ fi`,
         echoInput
     fi`,
     verboseEchoFunction:
-    `function echoIfVerbose() {
+        `function echoIfVerbose() {
     if [[ "$verbose" == true ]]; then
         echo "\${*}"
     fi
