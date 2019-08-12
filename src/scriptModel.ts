@@ -516,6 +516,7 @@ export class ScriptModel {
                 sbBashScript = sbBashScript.replace("__DECLARE_JQ_INSTALLED__", "");
             }
 
+
             sbBashScript = sbBashScript.replace("__REQUIRED_PARAMETERS__", requiredVariablesTemplate);
             sbBashScript = sbBashScript.replace("__LOGGING_SUPPORT_", logTemplate);
             sbBashScript = sbBashScript.replace("__END_LOGGING_SUPPORT__", this._builtInParameters.Logging !== undefined ? endLogTemplate : "");
@@ -530,10 +531,12 @@ export class ScriptModel {
             }
 
             if (this._builtInParameters.Verbose !== undefined) {
+                sbBashScript = sbBashScript.replace("__ECHO_IF__VERBOSE__FUNCTION__", bashTemplates.verboseEchoFunction);
                 sbBashScript = sbBashScript.replace("__VERBOSE_ECHO__", bashTemplates.verboseEcho);
             }
             else {
                 sbBashScript = sbBashScript.replace("__VERBOSE_ECHO__", "");
+                sbBashScript = sbBashScript.replace("__ECHO_IF__VERBOSE__FUNCTION__", "");
             }
             /*
               replace anyplace we have 3 new lines with 2 new lines.  this will get rid of double black lines...

@@ -3,7 +3,7 @@ export const bashTemplates =
     bashTemplate:
         `#!/bin/bash
 #---------- see https://github.com/joelong01/BashWizard and https://github.com/joelong01/bash-models----------------
-# bash-models version 1.1.9
+# bash-models version 1.1.11
 #
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
@@ -22,11 +22,7 @@ function echoInfo() {
     NORMAL=$(tput sgr0)
     echo "\${GREEN}\${*}\${NORMAL}"
 }
-function echoIfVerbose() {
-    if [[ "$verbose" == true ]]; then
-        echo "\${*}"
-    fi
-}
+__ECHO_IF__VERBOSE__FUNCTION__
 
 
 function gnuGetOptInstalled() {
@@ -49,7 +45,7 @@ GNU_GETOPT_INSTALLED=$(gnuGetOptInstalled)
 __DECLARE_JQ_INSTALLED__
 
 # make sure this version of *nix gnu-getopts installed. macs have a non-gnu-getops which doesn't support long parameters
-if [[ $GNU_GETOPT_INSTALLED = false __CHECK_FOR_JQ__]]; then
+if [[ $GNU_GETOPT_INSTALLED == false __CHECK_FOR_JQ__]]; then
     OS=$(uname)
     if [[ $OS == "Darwin" ]]; then
         if [[ $GNU_GETOPT_INSTALLED == false ]]; then
@@ -85,7 +81,6 @@ function usage() {
 __USAGE_LINE__ 1>&2
 __USAGE__
     echo ""
-    exit 1
 }
 function echoInput() {
     echo __ECHO__
@@ -214,12 +209,12 @@ fi`,
     fi`,
     checkJqDependency: `|| $JQ_INSTALLED = false `,
     checkJqFunction: `function jqInstalled() {
-        if [[ -z $(command -v jq) ]]; then
-            echo false
-        else
-            echo true
-        fi
-    }`,
+    if [[ -z $(command -v jq) ]]; then
+        echo false
+    else
+        echo true
+    fi
+}`,
     declareJqInstalled: `JQ_INSTALLED=$(jqInstalled)`,
     installJqDependency:
         `if [[ $JQ_INSTALLED == false ]]; then
@@ -237,7 +232,13 @@ fi`,
     verboseEcho:
         `    if [[ "$verbose" == true ]];then
         echoInput
-    fi`
+    fi`,
+    verboseEchoFunction:
+    `function echoIfVerbose() {
+    if [[ "$verbose" == true ]]; then
+        echo "\${*}"
+    fi
+}`
 }
 
 export default bashTemplates;

@@ -1,7 +1,7 @@
 //
 //  this is a useful file to have if you change the templates and want to look at formatting
 //
-//  run it from the root with ts-node src/test/generateBashFile.ts
+//  run it from the root with ts-node ./src/test/generateBashFile.ts
 //
 //  you have to have run npm install -g ts-node first...
 

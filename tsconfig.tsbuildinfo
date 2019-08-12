@@ -226,8 +226,8 @@
         "signature": "becc6e5bd497f3108826376357ad9174b2782978aff3f20f03d64733b322598e"
       },
       "/mnt/e/GitHub/bash-models/src/bashTemplates.ts": {
-        "version": "be8fae20cadc52762f155c58809592abd0c2ea27e64560508306208be165c634",
-        "signature": "fdc30ef65427cbe4c9ea1677030480b5c8e0aa00fd128fe100833576da5ce18c"
+        "version": "a1b51841673bc567c940aeeb3fce0c8dffc0b004f7db365321cf5e5f3b61774e",
+        "signature": "a72c679c24f5728eab2c42605965d90f85c969aa75dbe1929211e011d6de8a22"
       },
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/padEnd.d.ts": {
         "version": "a62d1249eabd7178d4b57780002b95a140fb88350e26597cc094d788d1d2d501",
@@ -250,8 +250,8 @@
         "signature": "8db8b70b575524bc3391d34a65862598f09aa3a05fbaf8deacf9d863806a740c"
       },
       "/mnt/e/GitHub/bash-models/src/scriptModel.ts": {
-        "version": "044e1a4e87437e7cfe355b0afbba4ab602e3e7cff6ff6522cef97fa2ebe795e5",
-        "signature": "7b68c608f25ab5fb537646ee7d5041601f8bf88ebbe525b0effda31b753563a1"
+        "version": "443ba4539ecc5d83400522e6f5533acea1fb352be98bb8539bd2bf489c7c57e3",
+        "signature": "970a7961e27b649171502dbfed4da470d6b56bf5df1441a9f0a8f18744b01e97"
       },
       "/mnt/e/GitHub/bash-models/src/index.ts": {
         "version": "856f9f7e56c358202b31104fa6235a9a1995ba5a7a05c2c20656e5e67c29b162",
@@ -1980,9 +1980,6 @@
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/trimStart.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/trimEnd.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/lodash/ts3.1/camelCase.d.ts",
-      "/mnt/e/GitHub/bash-models/src/parseBash.ts",
-      "/mnt/e/GitHub/bash-models/src/scriptModel.ts",
-      "/mnt/e/GitHub/bash-models/src/index.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/chai/index.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/mocha/index.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/globals.d.ts",
@@ -2029,7 +2026,10 @@
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/ts3.2/util.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/ts3.2/globals.d.ts",
       "/mnt/e/GitHub/bash-models/node_modules/@types/node/ts3.2/index.d.ts",
-      "/mnt/e/GitHub/bash-models/src/bashTemplates.ts"
+      "/mnt/e/GitHub/bash-models/src/bashTemplates.ts",
+      "/mnt/e/GitHub/bash-models/src/parseBash.ts",
+      "/mnt/e/GitHub/bash-models/src/scriptModel.ts",
+      "/mnt/e/GitHub/bash-models/src/index.ts"
     ]
   },
   "version": "3.5.1"
