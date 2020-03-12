@@ -1,6 +1,6 @@
 {
     "name": "bash-models",
-    "version": "1.1.12",
+    "version": "1.1.13",
     "description": "A set of models that expose APIs for parsing, creating, and manipulating Bash Files",
     "scripts": {
         "clean": "rimraf ./dist.",
@@ -45,10 +45,10 @@
         "@types/node": "^12.0.5",
         "chai": "^4.2.0",
         "copyfiles": "^2.1.0",
-        "mocha": "^6.1.4",
+        "mocha": "^6.2.2",
         "node": "^12.4.0",
-        "rimraf": "^2.6.3",
-        "ts-node": "^8.2.0",
-        "typescript": "^3.5.1"
+        "rimraf": "^2.7.1",
+        "ts-node": "^8.6.2",
+        "typescript": "^3.8.3"
     }
 }

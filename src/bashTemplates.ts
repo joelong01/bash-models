@@ -3,7 +3,7 @@ export const bashTemplates =
     bashTemplate:
         `#!/bin/bash
 #---------- see https://github.com/joelong01/BashWizard and https://github.com/joelong01/bash-models----------------
-# bash-models version 1.1.12
+# bash-models version 1.1.13
 #
 # this will make the error text stand out in red - if you are looking at these errors/warnings in the log file
 # you can use cat <logFile> to see the text in color.
@@ -65,14 +65,23 @@ if [[ $GNU_GETOPT_INSTALLED == false __CHECK_FOR_JQ__]]; then
             # in case urers want to use zsh
             #shellcheck disable=SC2016
             echo 'export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"' >> ~/.zshrc
-        fi
+        fi    
         __JQ_DEPENDENCY__
-        # if we got here, we installed something.  so launch a new shell in the interactive mode and run this scrip ($0) with the parameters that were passed in ($"{@}")
-        #
-        # note that the '--' tells the exec command that everything after it is for the next command, not parameters for exec
-        exec bash -l -i -- "\${0}" "\${@}"
-        exit
     fi
+
+    if [[ $OS == "Linux" ]]; then
+        if [[ $JQ_INSTALLED == false ]]; then
+            echoWarning "installing jq on Linux"
+            sudo apt-get install jq
+        fi
+    fi
+    
+    # if we got here, we installed something.  so launch a new shell in the interactive mode and run this scrip ($0) with the parameters that were passed in ($"{@}")
+    #
+    # note that the '--' tells the exec command that everything after it is for the next command, not parameters for exec
+    exec bash -l -i -- "\${0}" "\${@}"
+    exit
+    
 fi
 
 
@@ -207,7 +216,7 @@ fi`,
     if [[ $verify == "true" ]]; then
         onVerify
     fi`,
-    checkJqDependency: `|| $JQ_INSTALLED = false `,
+    checkJqDependency: `|| $JQ_INSTALLED == false `,
     checkJqFunction: `function jqInstalled() {
     if [[ -z $(command -v jq) ]]; then
         echo false

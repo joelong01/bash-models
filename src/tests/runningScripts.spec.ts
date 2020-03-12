@@ -110,7 +110,7 @@ describe('Running Script', () => {
                     `-v | --verify            Optional     calls the onVerify function in the script`,
                     `-d | --delete            Optional     calls the onDelete function in the script`,
                     `-e | --verbose           Optional     echos the parsed input variables and creates a false variable to be used in user code`,
-                    `-i | --input-file        Optional     the name of the input file. pay attention to /mnt/e/GitHub/bash-models when setting this`,
+                    `-i | --input-file        Optional     the name of the input file. pay attention to`, // note that this line is longer but has the path of the directory that the repo was cloned to, which will vary by dev.
                     `-l | --log-directory     Optional     Directory for the log file. The log file name will be based on the script name.`
                 ];
 
